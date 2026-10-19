@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Course Registration Portal</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="badge-icon">🎓 EduPortal</div>
+      <h1>Student Course Registration</h1>
+      <p>Automated duplicate detection system with real-time course logging</p>
+    </header>
+
+    <!-- Stats Dashboard Metrics -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-value" id="totalProcessed">0</span>
+        <span class="stat-label">Total Processed</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value text-success" id="totalRegistered">0</span>
+        <span class="stat-label">Unique Enrolments</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value text-warning" id="totalDuplicates">0</span>
+        <span class="stat-label">Duplicates Blocked</span>
+      </div>
+    </div>
+
+    <!-- Registration Input Card -->
+    <div class="card registration-card">
+      <div class="card-header">
+        <h2>Process Registration</h2>
+        <span class="format-hint">Input Format: <code>Student Name | Course 1, Course 2, ...</code></span>
+      </div>
+
+      <div class="input-section">
+        <label for="courseInput">Registration Details</label>
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="courseInput" 
+            value="Meera | Java, SQL, Java" 
+            placeholder="e.g. Meera | Java, SQL, Java"
+          >
+        </div>
+
+        <!-- Sample Presets for Quick Testing -->
+        <div class="preset-container">
+          <span class="preset-label">Quick Samples:</span>
+          <button type="button" class="btn-preset" data-sample="Meera | Java, SQL, Java">Meera (Java Duplicate)</button>
+          <button type="button" class="btn-preset" data-sample="Alex | Python, Web Dev, Python, Data Science">Alex (Python Duplicate)</button>
+          <button type="button" class="btn-preset" data-sample="Rohan | C++, Algorithms, SQL">Rohan (All Unique)</button>
+        </div>
+
+        <div class="action-buttons">
+          <button id="registerBtn" class="btn btn-primary">Process Registration ✨</button>
+          <button id="clearBtn" class="btn btn-secondary">Clear Input</button>
+        </div>
+      </div>
+
+      <!-- Result Output Box -->
+      <div class="output-box" id="outputBox">
+        <div class="output-header">
+          <h3>Expected Output Result</h3>
+          <button id="copyBtn" class="btn-copy">Copy Output</button>
+        </div>
+        <div id="resultText" class="result-text">
+          Click "Process Registration" to view output string.
+        </div>
+      </div>
+    </div>
+
+    <!-- Registration History Grid -->
+    <section class="history-section">
+      <div class="history-header">
+        <h2>Registered Student Cards</h2>
+        <button id="clearHistoryBtn" class="btn-text">Clear History</button>
+      </div>
+
+      <div class="history-grid" id="historyGrid">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">📝</div>
+          <p>No registration entries yet. Submit details above to populate records.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
